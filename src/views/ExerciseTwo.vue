@@ -17,7 +17,7 @@
         to the column below.
       </v-col>
       <v-col cols="12">
-        <!-- Your code here -->
+        <Counter>Button1</Counter>
       </v-col>
     </v-row>
 
@@ -30,7 +30,9 @@
         For now, make that "color" variable equal to blue.
       </v-col>
     </v-row>
-
+  <v-co>
+    <Counter>Button2</Counter>
+  </v-co>
     <v-divider class="my-4"/>
 
     <v-row dense>
@@ -41,7 +43,7 @@
         you click on one, does it affect the count of the others?
       </v-col>
       <v-col cols="12">
-        <!-- Your code here -->
+        <!-- Your code here --><Counter>Button3</Counter>
       </v-col>
     </v-row>
 
@@ -55,7 +57,7 @@
         <a href="https://vuejs.org/v2/guide/components-slots.html" target="_blank">For reference</a>
       </v-col>
       <v-col cols="12">
-        <!-- Your code here -->
+        <Counter>Slot</Counter>
       </v-col>
     </v-row>
 
@@ -68,8 +70,10 @@
         Bind the choice that is selected from that list to the "color" variable. The buttons should all change color.
         <a href="https://vuetifyjs.com/en/components/selects" target="_blank">For reference</a>
       </v-col>
-      <v-col cols="12">
-        <!-- Your code here -->
+      <v-col cols="6">
+        <v-select v-model="one_color" :items="colors" label=Colors outlined></v-select>
+        {{ one_color }}
+        <Counter v-bind:color="one_color"></Counter>
       </v-col>
     </v-row>
 
@@ -111,10 +115,21 @@
 </template>
 
 <script>
+import Counter from "../components/Counter.vue"
 export default {
   name: 'ExerciseTwo',
-
+  components:{
+    Counter
+  },
   data: () => ({
-  })
+       colors: [
+          { text: 'Red', value: 'red' },
+          { text: 'Green', value: 'green' },
+          { text: 'Blue', value: 'blue' },
+          { text: 'Yellow', value: 'yellow' },
+        ],
+      one_color:null
+    }),
 }
+
 </script>
