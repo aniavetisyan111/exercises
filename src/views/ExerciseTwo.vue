@@ -30,9 +30,9 @@
         For now, make that "color" variable equal to blue.
       </v-col>
     </v-row>
-  <v-co>
+  <v-col>
     <Counter>Button2</Counter>
-  </v-co>
+  </v-col>
     <v-divider class="my-4"/>
 
     <v-row dense>
@@ -43,7 +43,7 @@
         you click on one, does it affect the count of the others?
       </v-col>
       <v-col cols="12">
-        <!-- Your code here --><Counter>Button3</Counter>
+        <Counter>Button3</Counter>
       </v-col>
     </v-row>
 
@@ -115,21 +115,21 @@
 </template>
 
 <script>
-import Counter from "../components/Counter.vue"
+import Counter from '../components/Counter.vue'
 export default {
   name: 'ExerciseTwo',
-  components:{
+  components: {
     Counter
   },
   data: () => ({
-       colors: [
-          { text: 'Red', value: 'red' },
-          { text: 'Green', value: 'green' },
-          { text: 'Blue', value: 'blue' },
-          { text: 'Yellow', value: 'yellow' },
-        ],
-      one_color:null
-    }),
+    colors: [
+      { text: 'Red', value: 'red' },
+      { text: 'Green', value: 'green' },
+      { text: 'Blue', value: 'blue' },
+      { text: 'Yellow', value: 'yellow' }
+    ],
+    one_color: null
+  })
 }
 
 </script>

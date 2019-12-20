@@ -20,7 +20,7 @@
         <b>List of students:</b>
         <v-list>
           <v-list-item v-for="student in students" :key="student">
-            {{ student }}
+            {{ student.name }}  {{ student.surname }}
           </v-list-item>
         </v-list>
       </v-col>
@@ -30,12 +30,26 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Part 3</h2>
+        <h2>Part 2</h2>
         Add a v-text-field below with a label that says "Add students to the list" and a + append-outer-icon.
         <a href="https://vuetifyjs.com/en/components/text-fields#icons" target="_blank">For reference</a>
       </v-col>
-      <v-col cols="12">
-        <!-- Your code here -->
+      <v-col cols="4">
+        <v-text-field
+            v-model = "name"
+            @click:append-outer = "add()"
+            label="Name"
+          ></v-text-field>
+      </v-col>
+      <v-col cols="4">
+          <v-text-field
+            v-model = "surname"
+            @click:append-outer = "add()"
+            label="Surname"
+          ></v-text-field>
+      </v-col>
+     <v-col cols="4">
+         <v-btn @click = "add()" color="success">Submit</v-btn>
       </v-col>
     </v-row>
 
@@ -43,7 +57,7 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Part 4</h2>
+        <h2>Part 3</h2>
         Now, add an @action to the form we created above that will call a function to append the student to the students list.
         <a href="https://vuetifyjs.com/en/components/text-fields#icon-events" target="_blank">For reference</a>
       </v-col>
@@ -53,7 +67,7 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Part 5</h2>
+        <h2>Part 4</h2>
         Make the students a list of objects instead of a list of strings. Each student
         object should have first and last fields for their <b>անուն</b> and <b>ազգանուն</b>.
         Does our v-text-field still update the students correctly?
@@ -64,7 +78,7 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Part 6</h2>
+        <h2>Part 5</h2>
         Create a v-form and incorporate the v-text-field we made, as well as another one for last name,
         so that on submit, it will work properly with student objects. No model validation needed yet.
       </v-col>
@@ -74,7 +88,7 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Part 7</h2>
+        <h2>Part 6</h2>
         Update the code at the top to make the list of students look nicer.
       </v-col>
     </v-row>
@@ -87,7 +101,15 @@ export default {
   name: 'ExerciseThree',
 
   data: () => ({
-    students: []
-  })
+    students: [
+      { name: 'Ani', surname: 'Avetisyan' },
+      { name: 'Vahe', surname: 'Khachatryan' }
+    ]
+  }),
+  methods: {
+    add: function () {
+      this.students.push({ name: this.name, surname: this.surname })
+    }
+  }
 }
 </script>
