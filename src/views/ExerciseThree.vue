@@ -37,7 +37,6 @@
       <v-col cols="4">
         <v-text-field
             v-model = "name"
-            @click:append-outer = "add()"
             label="Name"
           ></v-text-field>
       </v-col>
@@ -46,10 +45,8 @@
             v-model = "surname"
             @click:append-outer = "add()"
             label="Surname"
+            append-outer-icon="add"
           ></v-text-field>
-      </v-col>
-     <v-col cols="4">
-         <v-btn @click = "add()" color="success">Submit</v-btn>
       </v-col>
     </v-row>
 
@@ -101,6 +98,8 @@ export default {
   name: 'ExerciseThree',
 
   data: () => ({
+    name: null,
+    surname: null,
     students: [
       { name: 'Ani', surname: 'Avetisyan' },
       { name: 'Vahe', surname: 'Khachatryan' }
@@ -109,6 +108,8 @@ export default {
   methods: {
     add: function () {
       this.students.push({ name: this.name, surname: this.surname })
+      this.name = ''
+      this.surname = ''
     }
   }
 }

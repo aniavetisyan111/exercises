@@ -1,6 +1,18 @@
 <template>
    <v-col cols="12">
         <v-col cols="12">
+            <v-text-field
+            v-model="title"
+            :rules="rules"
+            filled
+            label="first name"
+          ></v-text-field>
+          <v-text-field
+            v-model="title"
+            :rules="rules"
+            filled
+            label="last name"
+          ></v-text-field>
           <v-text-field
             v-model="title"
             :rules="rules"
@@ -16,13 +28,13 @@
           label="Password"
           hint="At least 8 characters"
           counter
-          filled
           error-count="3"
+          filled
           @click:append="show1 = !show1"
           ></v-text-field>
         </v-col>
         <v-col>
-        <v-btn color="primary">Login</v-btn>
+        <v-btn color="primary">Sign up</v-btn>
       </v-col>
       </v-col>
 </template>

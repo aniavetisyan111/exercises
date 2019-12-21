@@ -19,26 +19,8 @@
         Also import that newly-created component into this one and add it in the
         column below so we can see what it looks like.
       </v-col>
-      <v-col cols="12">
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="title"
-            :rules="rules"
-            filled
-            label="email"
-          ></v-text-field>
-          <v-text-field
-          v-model="password"
-          :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="[rules.required, rules.min]"
-          :type="show1 ? 'text' : 'password'"
-          name="input-10-1"
-          label="Password"
-          hint="At least 8 characters"
-            counter
-          @click:append="show1 = !show1"
-          ></v-text-field>
-        </v-col>
+      <v-col>
+        <login></login>
       </v-col>
     </v-row>
 
@@ -63,7 +45,7 @@
         Just as above, import it and add it below so we can see what it looks like.
       </v-col>
       <v-col cols="12">
-        <!-- Your code here -->
+        <register></register>
       </v-col>
     </v-row>
 
@@ -93,7 +75,7 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Challenge</h2>
+        <h2>Challenge 1</h2>
         Try to enter a blank password. How many error messages do you get? (Hint: The answer is one.)
         We would want the user to know of all password rules. See if you can look around the Vuetify
         documentation to see how to change v-text-field to fix that.
@@ -110,7 +92,6 @@
         <a href="https://vuetifyjs.com/en/components/tabs" target="_blank">For reference</a>
       </v-col>
       <v-col cols="8">
-        <!-- Your code here -->
       </v-col>
     </v-row>
 
@@ -128,18 +109,15 @@
 </template>
 
 <script>
+import Login from '../components/Login.vue'
+import Register from '../components/Register.vue'
 export default {
   name: 'ExerciseFour',
-
+  components: {
+    Login,
+    Register
+  },
   data () {
-    return {
-      show1: false,
-      password: 'Password',
-      rules: {
-        required: value => !!value || 'Required.',
-        min: v => v.length >= 8 || 'Min 8 characters'
-      }
-    }
   }
 }
 </script>
